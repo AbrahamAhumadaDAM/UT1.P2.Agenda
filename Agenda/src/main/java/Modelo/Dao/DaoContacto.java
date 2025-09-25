@@ -4,10 +4,20 @@
  */
 package Modelo.Dao;
 
+import Modelo.Pojos.Contacto;
+import java.util.ArrayList;
+
 /**
  *
  * @author abraham
  */
 public class DaoContacto {
+    
+    private ArrayList<Contacto> contactos;
+    
+    public DaoContacto(){
+        contactos = new ArrayList<Contacto>();
+    }
+    
     
 }
