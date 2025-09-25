@@ -31,6 +31,19 @@ public class Contacto {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+    
     
     
     

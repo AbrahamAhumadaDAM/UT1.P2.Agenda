@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Vista;
 
 /**
@@ -9,5 +6,16 @@ package Vista;
  * @author abraham
  */
 public class Vista {
-    
+   
+   public void PreguntarContactos(){
+       System.out.println("Esta es la lista de contactos: ");
+   }
+   
+   public void PreguntarPorNombre(){
+       System.out.println("¿Qué nombre estás buscando? ");
+   }
+   
+    public void PreguntarPorTelefono(){
+       System.out.println("¿Qué teléfono estás buscando? ");
+   }
 }
