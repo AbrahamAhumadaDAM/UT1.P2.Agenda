@@ -10,4 +10,28 @@ package Modelo.Pojos;
  */
 public class Contacto {
     
+    public String nombre;
+    public String apellido;
+    public String numero;
+    
+    public void Contacto(String nombre, String apellido, String numero){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numero = numero;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
+    
+    
 }
