@@ -7,17 +7,40 @@ package Modelo.Dao;
 import Modelo.Pojos.Contacto;
 import java.util.ArrayList;
 
-/**
- *
- * @author abraham
- */
 public class DaoContacto {
-    
     private ArrayList<Contacto> contactos;
-    
-    public DaoContacto(){
-        contactos = new ArrayList<Contacto>();
+
+    public DaoContacto() {
+        contactos = new ArrayList<>();
     }
-    
-    
+
+    public boolean borrarContactoDadaPosicion(int posicion) {
+        if (posicion >= 0 && posicion < contactos.size()) {
+            contactos.remove(posicion);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean borrarContactoDadoNombre(String nombre) {
+        for (int i = 0; i < contactos.size(); i++) {
+            if (contactos.get(i).getNombre().equals(nombre)) {
+                contactos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean borrarAgendaCompleta() {
+        if (!contactos.isEmpty()) {
+            contactos.clear();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hayContactos() {
+        return !contactos.isEmpty();
+    }
 }
