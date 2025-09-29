@@ -19,5 +19,9 @@ public class DaoContacto {
         contactos = new ArrayList<Contacto>();
     }
     
+    public void añadirContacto(Contacto c){
+        contactos.add(c);
+    }
+    
     
 }
