@@ -6,18 +6,30 @@ package Modelo.Dao;
 
 import Modelo.Pojos.Contacto;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author abraham
  */
 public class DaoContacto {
-    
+
     private ArrayList<Contacto> contactos;
-    
-    public DaoContacto(){
+
+    public DaoContacto() {
         contactos = new ArrayList<Contacto>();
     }
-    
-    
+
+
+    public boolean actualizarContacto(String telefonoBuscado, String nuevoNombre, String nuevoApellido, String nuevoTelefono) {
+        for (Contacto c : contactos) {
+            if (c.getNumero().equals(telefonoBuscado)) {
+                c.setNombre(nuevoNombre);
+                c.setApellido(nuevoApellido);
+                c.setNumero(nuevoTelefono);
+                return true; 
+            }
+        }
+        return false; 
+    }
 }
