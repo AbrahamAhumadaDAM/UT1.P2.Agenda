@@ -5,7 +5,7 @@
 package controlador;
 
 import Modelo.Dao.DaoContacto;
-import java.util.Scanner;
+import Vista.Vista;
 
 /**
  *
@@ -13,5 +13,28 @@ import java.util.Scanner;
  */
 public class Controlador {
   
-    
+    private DaoContacto dao;
+    private Vista vista;
+
+    public Controlador(DaoContacto dao, Vista vista) {
+        this.dao = dao;
+        this.vista = vista;
+    }
+
+   public void actualizarContacto() {
+         
+        String telefonoBuscado = vista.pedirTelefono();
+
+        String nuevoNombre = vista.pedirNombre();
+        String nuevoApellido = vista.pedirApellido();
+        String nuevoTelefono = vista.pedirTelefonoNuevo();
+
+        boolean actualizado = dao.actualizarContacto(telefonoBuscado, nuevoNombre, nuevoApellido, nuevoTelefono);
+
+        if (actualizado) {
+            vista.mostrarMensaje("Contacto actualizado correctamente.");
+        } else {
+            vista.mostrarMensaje("No se encontró un contacto con ese teléfono.");
+        }
+    }
 }
