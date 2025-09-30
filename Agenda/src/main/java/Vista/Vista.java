@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Vista;
 
 
@@ -15,6 +12,26 @@ import java.util.Scanner;
  * @author abraham
  */
 public class Vista {
+
+   private DaoContacto dao;
+   private Scanner sc;
+
+   public Vista() {
+       dao = new DaoContacto();
+       sc = new Scanner(System.in);
+   }
+   
+   public void PreguntarContactos(){
+       System.out.println("Esta es la lista de contactos: ");
+   }
+   
+   public void PreguntarPorNombre(){
+       System.out.println("¿Qué nombre estás buscando? ");
+   }
+   
+    public void PreguntarPorTelefono(){
+       System.out.println("¿Qué teléfono estás buscando? ");
+   }
 
 
 
@@ -44,13 +61,7 @@ public class Vista {
     }
 
 
-    private DaoContacto dao;
-    private Scanner sc;
-
-    public Vista() {
-        dao = new DaoContacto();
-        sc = new Scanner(System.in);
-    }
+   
 
     public void mostrarMenu() {
         System.out.println("1. Borrar contacto por posición");
@@ -151,6 +162,7 @@ public class Vista {
         return orden;
         
     }
+
 }
 
 
