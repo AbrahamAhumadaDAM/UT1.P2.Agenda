@@ -12,9 +12,11 @@ import Vista.Vista;
  * @author abraham
  */
 public class Controlador {
+
   
     private DaoContacto dao;
     private Vista vista;
+    String orden = "";
 
     public Controlador(DaoContacto dao, Vista vista) {
         this.dao = dao;
@@ -37,4 +39,28 @@ public class Controlador {
             vista.mostrarMensaje("No se encontró un contacto con ese teléfono.");
         }
     }
+
+ 
+
+    
+    public void inicio(){
+        
+        orden = vista.inicio();
+        
+        switch (orden){
+            case "crear_contacto":
+                
+                daoContacto.añadirContacto(vista.CrearContacto());
+                
+                orden = vista.inicio();
+                
+                break;
+                
+            case "inicio":
+                orden = vista.inicio();
+                break;
+        }
+        
+    }
 }
+
