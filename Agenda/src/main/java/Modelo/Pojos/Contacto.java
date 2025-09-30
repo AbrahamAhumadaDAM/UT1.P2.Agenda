@@ -14,7 +14,7 @@ public class Contacto {
     public String apellido;
     public String numero;
     
-    public void Contacto(String nombre, String apellido, String numero){
+    public Contacto(String nombre, String apellido, String numero){
         this.nombre = nombre;
         this.apellido = apellido;
         this.numero = numero;
@@ -43,6 +43,7 @@ public class Contacto {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+    
 
     
 }

@@ -43,4 +43,9 @@ public class DaoContacto {
     public boolean hayContactos() {
         return !contactos.isEmpty();
     }
+    
+    public void añadirContacto(Contacto c){
+        contactos.add(c);
+    }
+    
 }

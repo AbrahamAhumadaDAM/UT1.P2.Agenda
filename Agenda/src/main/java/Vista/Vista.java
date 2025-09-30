@@ -5,6 +5,8 @@
 package Vista;
 
 import Modelo.Dao.DaoContacto;
+import Modelo.Pojos.Contacto;
+import controlador.Controlador;
 import java.util.Scanner;
 
 /**
@@ -79,6 +81,46 @@ public class Vista {
                     System.out.println("Opción no válida.");
             }
         } while (opcion != 4);
+    
+    Controlador controlador;
+   
+    
+    public void setControl(Controlador c){
+        this.controlador = c;
+    }
+    
+    public Contacto CrearContacto(){
+        
+        System.out.println("Introduce el nombre");
+        
+        String nombre = sc.nextLine();
+        
+        System.out.println("introduce el apellido");
+        
+        String apellido = sc.nextLine();
+        
+        System.out.println("introduce el numero");
+        
+        String numero = sc.nextLine();
+        
+        Contacto c = new Contacto(nombre, apellido, numero);
+        
+        return c;
+        
+    }
+    
+    
+    public String inicio(){
+        
+        
+        System.out.println("Escribe una opcion:");
+        
+        System.out.println("crear_contacto");
+        
+        String orden = sc.nextLine();
+        
+        return orden;
+        
     }
 }
 
