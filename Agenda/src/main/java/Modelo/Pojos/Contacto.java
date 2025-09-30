@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo.Pojos;
 
 /**
@@ -43,5 +39,9 @@ public class Contacto {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Contacto{" + "nombre=" + nombre + ", apellido=" + apellido + ", numero=" + numero + '}';
+    }
 }

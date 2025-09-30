@@ -1,10 +1,8 @@
-
 package Vista;
 
 
 import Modelo.Dao.DaoContacto;
 import Modelo.Pojos.Contacto;
-import controlador.Controlador;
 import java.util.Scanner;
 
 /**
@@ -13,120 +11,58 @@ import java.util.Scanner;
  */
 public class Vista {
 
-   private DaoContacto dao;
-   private Scanner sc;
+    private final DaoContacto dao;
+    private final Scanner sc;
 
-   public Vista() {
+    public Vista() {
        dao = new DaoContacto();
        sc = new Scanner(System.in);
-   }
+    }
    
-   public void PreguntarContactos(){
+    public void PreguntarContactos(){
        System.out.println("Esta es la lista de contactos: ");
-   }
+    }
    
-   public void PreguntarPorNombre(){
+    public String PreguntarPorNombre(){
        System.out.println("¿Qué nombre estás buscando? ");
-   }
+       String nombre = sc.nextLine();
+       return nombre;
+    }
    
-    public void PreguntarPorTelefono(){
+    public void ContactoEncontrado(){
+       System.out.println("Este es el contacto que estás buscando");
+       System.out.println("--------------------------------------");
+    }
+   
+    public String PreguntarPorTelefono(){
        System.out.println("¿Qué teléfono estás buscando? ");
-   }
-
-
-
+       String telefono = sc.nextLine();
+       return telefono;
+    }
 
     public String pedirTelefono() {
-        System.out.print("Introduce el teléfono del contacto a actualizar: ");
-        return sc.nextLine();
+        System.out.print("Introduce el teléfono nuevo del contacto: ");
+        String telefono = sc.nextLine();
+        return telefono;
     }
 
     public String pedirNombre() {
         System.out.print("Introduce el nuevo nombre: ");
-        return sc.nextLine();
+        String nombre = sc.nextLine();
+        return nombre;
     }
 
     public String pedirApellido() {
         System.out.print("Introduce el nuevo apellido: ");
-        return sc.nextLine();
+        String apellido = sc.nextLine();
+        return apellido;
     }
-
-    public String pedirTelefonoNuevo() {
-        System.out.print("Introduce el nuevo teléfono: ");
-        return sc.nextLine();
-    }
-
-    public void mostrarMensaje(String mensaje) {
-        System.out.println(mensaje);
-    }
-
-
-   
-
-    public void mostrarMenu() {
-        System.out.println("1. Borrar contacto por posición");
-        System.out.println("2. Borrar contacto por nombre");
-        System.out.println("3. Borrar agenda completa");
-        System.out.println("4. Salir");
-    }
-
-    public void ejecutar() {
-        int opcion;
-        do {
-            mostrarMenu();
-            System.out.print("Seleccione una opción: ");
-            opcion = Integer.parseInt(sc.nextLine());
-
-            switch (opcion) {
-                case 1:
-                    System.out.print("Introduce la posición del contacto a borrar: ");
-                    int pos = Integer.parseInt(sc.nextLine());
-                    if (dao.borrarContactoDadaPosicion(pos)) {
-                        System.out.println("Se ha borrado el contacto.");
-                    } else {
-                        System.out.println("Posición inválida.");
-                    }
-                    break;
-
-                case 2:
-                    System.out.print("Introduce el nombre del contacto a borrar: ");
-                    String nombre = sc.nextLine();
-                    if (dao.borrarContactoDadoNombre(nombre)) {
-                        System.out.println("Se ha borrado el contacto.");
-                    } else {
-                        System.out.println("No se encontró el contacto.");
-                    }
-                    break;
-
-                case 3:
-                    if (dao.hayContactos()) {
-                        System.out.print("¿Está seguro que desea borrar todos los contactos? (si/no): ");
-                        String confirmacion = sc.nextLine();
-                        if (confirmacion.equalsIgnoreCase("si")) {
-                            dao.borrarAgendaCompleta();
-                            System.out.println("Se han borrado todos los contactos.");
-                        } else {
-                            System.out.println("Operación cancelada.");
-                        }
-                    } else {
-                        System.out.println("No hay contactos en la agenda.");
-                    }
-                    break;
-
-                case 4:
-                    System.out.println("Saliendo...");
-                    break;
-
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        } while (opcion != 4);
     
-    Controlador controlador;
-   
-    
-    public void setControl(Controlador c){
-        this.controlador = c;
+    public int elegirPosicion(){
+        System.out.println("¿Qué posición desea borrar?");
+        int posicion = sc.nextInt();
+        sc.nextLine();
+        return posicion;
     }
     
     public Contacto CrearContacto(){
@@ -150,19 +86,97 @@ public class Vista {
     }
     
     
+    
+    public void agendaBorrada(){
+        System.out.println("La agenda se ha borrado con éxito");
+        System.out.println("---------------------------------");
+    }
+    
+    public void agendaNoBorrada(){
+        System.out.println("La agenda no se ha borrado (no había contactos)");
+        System.out.println("-----------------------------------------------");
+    }
+    
+    public void contactoBorrado(){
+        System.out.println("El contacto ha sido borrado con éxito");
+        System.out.println("-------------------------------------");
+    }
+    
+    public void contactoNoBorrado(){
+        System.out.println("El contacto no ha sido borrado");
+        System.out.println("------------------------------");
+    }
+    
+    public String añadirDescripcion(){
+        System.out.println("A continuación escriba la descripción a su cita:");
+        String descripcion = sc.nextLine();
+        return descripcion;
+    }    
+    
     public String inicio(){
-        
-        
         System.out.println("Escribe una opcion:");
-        
-        System.out.println("crear_contacto");
-        
+        System.out.println("-------------------");
+        System.out.println("crearContacto");
+        System.out.println("buscarContacto");
+        System.out.println("actualizarContacto");
+        System.out.println("borrarContacto");
+        System.out.println("Alarmas");
+        System.out.println("salir");
+        System.out.println("-------------------");
         String orden = sc.nextLine();
-        
         return orden;
-        
+    }
+    
+    public String inicioBusqueda() {
+        System.out.println("Escribe una opcion:");
+        System.out.println("-------------------");
+        System.out.println("buscarPorNombre");
+        System.out.println("buscarPorTelefono");
+        System.out.println("mostrarContactos");
+        System.out.println("volverContactos");
+        System.out.println("-------------------");
+        String orden = sc.nextLine();
+        return orden;
+    }
+    
+    public String inicioBorrado() {
+        System.out.println("Escribe una opcion:");
+        System.out.println("--------------------------");
+        System.out.println("borrarContactoDadaPosicion");
+        System.out.println("borrarContactoDadoNombre");
+        System.out.println("borrarAgendaCompleta");
+        System.out.println("volverContactos");
+        System.out.println("--------------------------");
+        String orden = sc.nextLine();
+        return orden;
+    }
+    
+    public String inicioAlarmas(){
+        System.out.println("Escribe una opcion:");
+        System.out.println("-------------------");
+        System.out.println("crearCita");
+        System.out.println("listarCita");
+        System.out.println("buscarCita");
+        System.out.println("borrarCita");
+        System.out.println("volverContactos");
+        System.out.println("-------------------");
+        String orden = sc.nextLine();
+        return orden;
+    }
+
+    public void HechoCorrectamente() {
+        System.out.println("La tarea se ha realizado correctamente");
+        System.out.println("Volviendo al menú principal...");
+        System.out.println("--------------------------------------");
+    }
+
+    public void volverContactos(){
+        System.out.println("Volviendo al menú de contactos...");
+        System.out.println("---------------------------------");
+    }
+    
+    public void salirPrograma(){
+        System.out.println("Hasta la próxima!!!");
     }
 
 }
-
-

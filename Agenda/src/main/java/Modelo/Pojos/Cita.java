@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo.Pojos;
 
 import java.time.LocalDateTime;
@@ -49,9 +45,4 @@ public class Cita {
     public String toString() {
         return "Cita: "+ descripcion + " a las: " + fechaHora + "con el contacto: " + contacto;
     }
-
-    
-    
-    
-    
 }

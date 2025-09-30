@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo.Dao;
 
 import Modelo.Pojos.Cita;
@@ -14,7 +10,7 @@ import java.util.HashMap;
  * @author pablo_proyecto
  */
 public class DaoCita {
-    private HashMap<LocalDateTime, Cita> citas = new HashMap<>(); 
+    private final HashMap<LocalDateTime, Cita> citas = new HashMap<>(); 
     
     public void crearCita(String descripcion, LocalDateTime fechaHora, Contacto contacto){
         Cita citaNueva = new Cita(descripcion, fechaHora, contacto);

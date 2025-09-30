@@ -2,21 +2,19 @@ package Modelo.Dao;
 
 import Modelo.Pojos.Contacto;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DaoContacto {
-
-
-    private ArrayList<Contacto> contactos;
-
+    
+    private final ArrayList<Contacto> contactos;
+    
     public DaoContacto() {
-        contactos = new ArrayList<Contacto>();
+        contactos = new ArrayList<>();
     }
-
-    public ArrayList<Contacto> listarContactos() {
-        return new ArrayList<>(contactos);
+    
+    public void añadirContacto(Contacto c){
+        contactos.add(c);
     }
-
+    
     public ArrayList<Contacto> buscarPorNombre(String patron) {
         String p = patron.toLowerCase().trim();
         ArrayList<Contacto> resultado = new ArrayList<>();
@@ -28,18 +26,17 @@ public class DaoContacto {
         return resultado;
     }
 
-    public ArrayList<Contacto> buscarPorTelefono(String patron) {
+    public Contacto buscarPorTelefono(String patron) {
         String p = patron.trim();
-        ArrayList<Contacto> resultado = new ArrayList<>();
         for (Contacto c : contactos) {
             if (c.getNumero() != null && c.getNumero().contains(p)) {
-                resultado.add(c);
+                return c;
             }
         }
-        return resultado;
+        return null;
     }
 
-    private static void mostrarContactos(ArrayList<Contacto> lista) {
+    public void mostrarContactos(ArrayList<Contacto> lista) {
         if (lista.isEmpty()) {
             System.out.println("No hay resultados.");
             return;
@@ -51,9 +48,10 @@ public class DaoContacto {
         }
     }
 
-
-
-
+    public ArrayList<Contacto> getContactos() {
+        return contactos;
+    }
+    
     public boolean actualizarContacto(String telefonoBuscado, String nuevoNombre, String nuevoApellido, String nuevoTelefono) {
         for (Contacto c : contactos) {
             if (c.getNumero().equals(telefonoBuscado)) {
@@ -91,15 +89,4 @@ public class DaoContacto {
         }
         return false;
     }
-
-    public boolean hayContactos() {
-        return !contactos.isEmpty();
-    }
-    
-    public void añadirContacto(Contacto c){
-        contactos.add(c);
-    }
-    
-
 }
-

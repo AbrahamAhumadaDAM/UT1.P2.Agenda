@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.agenda;
 
-
+import Modelo.Modelo;
 import Vista.Vista;
 import controlador.Controlador;
 
@@ -16,13 +12,9 @@ import controlador.Controlador;
 public class Main {
 
     public static void main(String[] args) {
-        
-        
+        Modelo m = new Modelo();
         Vista v = new Vista();
-        Controlador controlador = new Controlador(v);
-        
-        controlador.inicio();
-        
-        
+        Controlador c = new Controlador(v);
+        c.Iniciar();
     }
 }
