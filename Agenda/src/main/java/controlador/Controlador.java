@@ -12,15 +12,36 @@ import Vista.Vista;
  * @author abraham
  */
 public class Controlador {
- 
-    Vista vista;
-    DaoContacto daoContacto;
+
+  
+    private DaoContacto dao;
+    private Vista vista;
     String orden = "";
-    
-    public Controlador(Vista v){
-        daoContacto = new DaoContacto();
-        this.vista = v;
+
+    public Controlador(DaoContacto dao, Vista vista) {
+        this.dao = dao;
+        this.vista = vista;
     }
+
+   public void actualizarContacto() {
+         
+        String telefonoBuscado = vista.pedirTelefono();
+
+        String nuevoNombre = vista.pedirNombre();
+        String nuevoApellido = vista.pedirApellido();
+        String nuevoTelefono = vista.pedirTelefonoNuevo();
+
+        boolean actualizado = dao.actualizarContacto(telefonoBuscado, nuevoNombre, nuevoApellido, nuevoTelefono);
+
+        if (actualizado) {
+            vista.mostrarMensaje("Contacto actualizado correctamente.");
+        } else {
+            vista.mostrarMensaje("No se encontró un contacto con ese teléfono.");
+        }
+    }
+
+ 
+
     
     public void inicio(){
         
@@ -42,3 +63,4 @@ public class Controlador {
         
     }
 }
+

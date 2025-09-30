@@ -4,8 +4,10 @@
 
 package com.mycompany.agenda;
 
+
 import Vista.Vista;
 import controlador.Controlador;
+
 
 /**
  *
@@ -20,6 +22,7 @@ public class Main {
         Controlador controlador = new Controlador(v);
         
         controlador.inicio();
+        
         
     }
 }

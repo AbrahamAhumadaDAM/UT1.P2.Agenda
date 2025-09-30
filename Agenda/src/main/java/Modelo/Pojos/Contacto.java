@@ -43,7 +43,6 @@ public class Contacto {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    
 
     
 }

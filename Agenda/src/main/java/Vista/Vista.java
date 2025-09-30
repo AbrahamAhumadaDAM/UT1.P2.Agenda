@@ -4,6 +4,7 @@
  */
 package Vista;
 
+
 import Modelo.Dao.DaoContacto;
 import Modelo.Pojos.Contacto;
 import controlador.Controlador;
@@ -14,6 +15,34 @@ import java.util.Scanner;
  * @author abraham
  */
 public class Vista {
+
+
+
+
+    public String pedirTelefono() {
+        System.out.print("Introduce el teléfono del contacto a actualizar: ");
+        return sc.nextLine();
+    }
+
+    public String pedirNombre() {
+        System.out.print("Introduce el nuevo nombre: ");
+        return sc.nextLine();
+    }
+
+    public String pedirApellido() {
+        System.out.print("Introduce el nuevo apellido: ");
+        return sc.nextLine();
+    }
+
+    public String pedirTelefonoNuevo() {
+        System.out.print("Introduce el nuevo teléfono: ");
+        return sc.nextLine();
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
+
 
     private DaoContacto dao;
     private Scanner sc;
